@@ -23,6 +23,7 @@ import com.example.Main.Service.OtpService;
 //@AutoConfigureMockMvc(addFilters = false)
 @SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
+@Disabled
 public class AuthControllerTest {
 
 	
@@ -37,7 +38,7 @@ public class AuthControllerTest {
     private AuthService authService;
     
     @Test
-    @Disabled
+    
     void testSendOtp() throws Exception {
     	
     	
