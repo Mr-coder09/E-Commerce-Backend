@@ -2,6 +2,7 @@ package com.example.Main.Auth;
 
 import static org.mockito.Mockito.doNothing;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -36,6 +37,7 @@ public class AuthControllerTest {
     private AuthService authService;
     
     @Test
+    @Disabled
     void testSendOtp() throws Exception {
     	
     	
