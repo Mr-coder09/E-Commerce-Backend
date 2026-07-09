@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: ecommerce-pod
+
+spec:
+  containers:
+    - name: ecommerce-container
+      image: ecommerce-backend
+      imagePullPolicy: Never
+
+      ports:
+        - containerPort: 8080

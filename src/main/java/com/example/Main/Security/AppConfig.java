@@ -59,15 +59,16 @@ public class AppConfig {
 		
 			
 			.authorizeHttpRequests(auth -> auth
-				    .requestMatchers(
-				        "/api/v1/auth/**",
-				        "/v3/api-docs/**",
-				        "/swagger-ui/**",
-				        "/swagger-ui.html",
-				        "/api/v1/auth/send-otp",
-				        "/api/v1/auth/verify-otp",
-				        "/api/v1/products/**"
-				    ).permitAll()
+					.requestMatchers(
+						    "/actuator/health",
+						    "/api/v1/auth/**",
+						    "/v3/api-docs/**",
+						    "/swagger-ui/**",
+						    "/swagger-ui.html",
+						    "/api/v1/auth/send-otp",
+						    "/api/v1/auth/verify-otp",
+						    "/api/v1/products/**"
+						).permitAll()
 				    .anyRequest().authenticated()
 				)
 			
