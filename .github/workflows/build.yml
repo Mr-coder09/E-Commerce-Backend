@@ -38,6 +38,18 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t mrcoder09/ecommerce-backend:latest .
+		
+      - name: Run Trivy Vulnerability Scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'mrcoder09/ecommerce-backend:latest'
+          format: 'table'
+          exit-code: '1'
+          severity: 'HIGH,CRITICAL'
+		  	    
+		
+		
+		
 
       - name: Push Docker Image
         run: docker push mrcoder09/ecommerce-backend:latest
