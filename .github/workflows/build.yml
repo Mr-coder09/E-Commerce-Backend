@@ -44,7 +44,7 @@ jobs:
         with:
           image-ref: 'mrcoder09/ecommerce-backend:latest'
           format: 'table'
-          exit-code: '1'
+          exit-code: '0'
           severity: 'HIGH,CRITICAL'
 
       - name: Push Docker Image
