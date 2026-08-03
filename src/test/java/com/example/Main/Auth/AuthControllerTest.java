@@ -28,7 +28,7 @@ public class AuthControllerTest {
 
 	
 	@Autowired
-
+ 
     private MockMvc mockMvc;
 
 	@MockBean
