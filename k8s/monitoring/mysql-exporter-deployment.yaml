@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mysql-exporter
+  namespace: ecommerce
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: mysql-exporter
+
+  template:
+    metadata:
+      labels:
+        app: mysql-exporter
+
+    spec:
+      containers:
+        - name: mysql-exporter
+          image: prom/mysqld-exporter:latest
+          imagePullPolicy: IfNotPresent
+
+          args:
+            - "--config.my-cnf=/etc/.my.cnf"
+
+          ports:
+            - containerPort: 9104
+
+          volumeMounts:
+            - name: mysql-exporter-config
+              mountPath: /etc/.my.cnf
+              subPath: .my.cnf
+              readOnly: true
+
+      volumes:
+        - name: mysql-exporter-config
+          secret:
+            secretName: mysql-exporter-secret

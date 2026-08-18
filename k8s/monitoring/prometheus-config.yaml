@@ -12,9 +12,12 @@ data:
 
     scrape_configs:
       - job_name: 'ecommerce-backend'
-
         metrics_path: /actuator/prometheus
-
         static_configs:
           - targets:
               - ecommerce-service.ecommerce.svc.cluster.local:8080
+
+      - job_name: 'mysql'
+        static_configs:
+          - targets:
+              - mysql-exporter.ecommerce.svc.cluster.local:9104
