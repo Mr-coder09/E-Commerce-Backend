@@ -56,7 +56,7 @@ jobs:
         run: |
           kubectl config set-cluster kind-kind \
             --server="${{ secrets.KUBE_SERVER }}" \
-            --certificate-authority-data="${{ secrets.KUBE_CA_CERT }}"
+            --insecure-skip-tls-verify=true
 
           kubectl config set-credentials github-actions \
             --token="${{ secrets.KUBE_TOKEN }}"
