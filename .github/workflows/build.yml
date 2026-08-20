@@ -70,7 +70,7 @@ jobs:
 
       - name: Verify Kubernetes Access
         run: |
-          kubectl get namespace ecommerce
+          kubectl get deployments ecommerce
           kubectl auth can-i get deployments -n ecommerce
 
       - name: Deploy to Kubernetes
