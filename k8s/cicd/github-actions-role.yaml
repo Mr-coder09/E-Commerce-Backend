@@ -1,44 +1,48 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
+
 metadata:
   name: github-actions-role
   namespace: ecommerce
 
 rules:
-  # Deployment management
-  - apiGroups:
-      - apps
-    resources:
-      - deployments
-    verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
 
-  # Services, ConfigMaps and Secrets
-  - apiGroups:
-      - ""
-    resources:
-      - services
-      - configmaps
-      - secrets
-    verbs:
-      - get
-      - list
-      - watch
-      - create
-      - update
-      - patch
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+  verbs:
+    - get
+    - list
+    - watch
+    - update
+    - patch
 
-  # Pod inspection only
-  - apiGroups:
-      - ""
-    resources:
-      - pods
-    verbs:
-      - get
-      - list
-      - watch
+- apiGroups:
+    - ""
+  resources:
+    - services
+    - configmaps
+    - secrets
+    - pods
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+
+- apiGroups:
+    - autoscaling
+  resources:
+    - horizontalpodautoscalers
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
